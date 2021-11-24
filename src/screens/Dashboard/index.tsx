@@ -1,4 +1,5 @@
 import React from 'react';
+import { HighlightCard } from '../../components/HighlighCard';
 import { 
     Container, 
     Header,  
@@ -7,7 +8,8 @@ import {
     Photo, 
     User, 
     UserGretting, 
-    UserName } from './styles';
+    UserName,
+    Icon } from './styles';
 
 export function Dashboard(){
     return (
@@ -19,12 +21,14 @@ export function Dashboard(){
                             source={{uri: 'https://avatars.githubusercontent.com/u/31963525?v=4'}}>
                         </Photo>
                         <User>
-                            <UserGretting></UserGretting>
-                            <UserName></UserName>
+                            <UserGretting>Olá,</UserGretting>
+                            <UserName>Carlos</UserName>
                         </User>
                     </UserInfo>
+                    <Icon name="power"/>
                 </UserWrapper>
             </Header>
+            <HighlightCard/>
         </Container>
     )
 }

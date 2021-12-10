@@ -35,12 +35,12 @@ export const Container = styled(TouchableOpacity)<ContainerProps>`
 export const Title = styled.Text`
     font-family: ${({theme}) => theme.fonts.regular};
     font-size: ${RFValue(14)}px;
-    color: ${({theme}) => theme.colors.text};
+    color: ${({theme}) => theme.colors.text_dark};
 `;
 
 export const Icon = styled(Feather)<IconProps>`
     font-size: ${RFValue(24)}px;
     margin-right: 12px;
-    color: ${({type, theme}) => type === 'up' ? theme.colors.success : theme.colors.attention}
+    color: ${({type, theme}) => type === "up" ? theme.colors.success : theme.colors.text_dark}
 
 `

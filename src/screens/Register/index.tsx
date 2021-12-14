@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Modal} from 'react-native'
-import { useForm, UseForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { CategorySelectButton } from '../../components/Form/CategorySelectButton';
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
 import { Button } from '../../components/Form/Button';

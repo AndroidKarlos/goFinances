@@ -36,6 +36,7 @@ export function CategorySelect({
     return (
         <Container>
             <Header>
+                <Title>Categoria</Title>
             </Header>
             <FlatList 
                     data={categories} 

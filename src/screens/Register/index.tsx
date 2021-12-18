@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { CategorySelectButton } from '../../components/Form/CategorySelectButton';
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
 import { Button } from '../../components/Form/Button';
-import { Input } from '../../components/Form/Input';
 import {InputForm} from '../../components/Form/InputForm';
 import {CategorySelect} from '../CategorySelect'
 
@@ -89,9 +88,9 @@ export function Register(){
                 <Title>Cadastro</Title>
             </Header>
 
-            <Form>
+             <Form>
                 <Fields>
-                    <InputForm 
+                     <InputForm 
                         name="name"
                         control={control}
                         placeholder="Nome"
@@ -99,9 +98,9 @@ export function Register(){
                         autoCorrect={false}
                         error={errors.name && errors.name.message}
 
-                    />
+                    />           
                     <InputForm 
-                        name="name"
+                        name="amount"
                         control={control}
                         placeholder="Preço"
                         keyboardType="numeric"
@@ -129,17 +128,17 @@ export function Register(){
                 </Fields>
                 <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
             </Form>
-
+        
             <Modal visible={categoryModalOpen}>
                 <CategorySelect 
                     category={category}
                     setCategory={setCategory}
                     closeSelectCategory={handleCloseCategorySelectModal}
                 />
-            </Modal>
+            </Modal> 
 
         </Container>
-        </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback>
     )
 
 }

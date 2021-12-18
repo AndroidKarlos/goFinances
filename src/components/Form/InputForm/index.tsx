@@ -12,7 +12,6 @@ interface Props extends TextInputProps{
 
 export function InputForm({control, name, error, ...rest}: Props){
     return (
-        
         <Container>
             <Controller 
                 control={control} 
@@ -27,6 +26,5 @@ export function InputForm({control, name, error, ...rest}: Props){
             />
         {error && <Error>{error}</Error>}  
         </Container>
-        
     )
 }

@@ -4,11 +4,18 @@ import {
     Header,
     Title,
     Content,
-    ChartContainer
+    ChartContainer,
+    MonthSelect,
+    MonthSelectButton,
+    MonthSelectIcon,
+    Month,
 } from './styles';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components'
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { categories } from '../../utils/categories';
 import { HistoryCard } from '../../components/HistoryCard';
 import { VictoryPie } from 'victory-native';
@@ -34,8 +41,13 @@ interface CategoryData {
 
 export function Resume({ }) {
     const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const theme = useTheme();
+
+    function handleDateChange(action: 'prev' | 'next'){
+
+    }
 
     async function loadData() {
         const dataKey = '@gofinances:transactions';
@@ -92,7 +104,27 @@ export function Resume({ }) {
             <Header>
                 <Title>Resumo por Categoria</Title>
             </Header>
-            <Content>
+            <Content
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    padding: 24,
+                    paddingBottom: useBottomTabBarHeight(),
+                }}
+            >
+
+                <MonthSelect>
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-left"></MonthSelectIcon>
+                    </MonthSelectButton>
+
+                    <Month>Fevereiro</Month>
+
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-right"></MonthSelectIcon>
+                    </MonthSelectButton>
+
+                </MonthSelect>
+
                 <ChartContainer>
                     <VictoryPie
                         data={totalByCategories}
@@ -115,7 +147,7 @@ export function Resume({ }) {
                             key={item.key}
                             title={item.name}
                             amount={item.totalFormatted}
-                            color='red'
+                            color={item.color}
                         />
                     ))
                 }
